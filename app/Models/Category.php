@@ -9,9 +9,13 @@ class Category extends Model
 {
     use HasFactory;
 
+    // Menentukan nama tabel (opsional, tapi aman untuk menghindari salah deteksi jamak/plural)
+    protected $table = 'categories';
+
+    // Kolom yang boleh diisi
     protected $fillable = ['nama_kategori'];
 
-    // Relasi One-to-Many: Satu Kategori memiliki banyak Buku
+    // Relasi ke tabel Book
     public function books()
     {
         return $this->hasMany(Book::class);
